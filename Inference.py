@@ -38,7 +38,7 @@ for model_name in os.listdir("models"):
     cbc.load_model(os.path.join("models", model_name))
     res = cbc.predict_proba(features)[:, 1]
     results.append(res)
-results = (np.array(results).mean(axis=0) > 0.25)
+results = (np.array(results).mean(axis=0) > 0.2)
 
 print("Сохраняем результат...")
 data["command_result"] = results

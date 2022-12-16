@@ -22,8 +22,6 @@ def generate_features(df, stat):
         features.append(get_cat_feature(df, col_name, stat))
 
     features.append(df.amount * df.currency.map({"RUB":1, "USD": 63, "EUR": 63}))
-    features.append(df.cnt.fillna(-1).values)
-    features.append(df["sum"].fillna(-1).values)
 
     return np.array(features).T
 
